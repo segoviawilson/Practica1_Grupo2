@@ -1,0 +1,26 @@
+#Crear la red
+docker network create --driver bridge netw-vehiculos
+
+# MySQL
+
+docker run -d \
+  --name db-mysql-vehiculos \
+  --network netw-vehiculos \
+  --env-file .env \
+  -v mysql_data:/var/lib/mysql \
+  -v "$PWD"/init.sql:/docker-entrypoint-initdb.d/init.sql \
+  -p 3306:3306 \
+  mysql:8.3
+
+
+# phpMyAdmin
+
+docker run -d \
+  --name web_phpmyadmin_vehiculos \
+  --network netw-vehiculos \
+  --env-file .env \
+  -e PMA_HOST=db-mysql-vehiculos \
+  -p 8080:80 \
+  phpmyadmin:5.2.2
+
+
