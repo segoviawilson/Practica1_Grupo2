@@ -1,4 +1,4 @@
-## INTEGRANTES.
+## GRUPOS 2 INTEGRANTES.
 | Nombre | Cargo | URL GitHub |
 |---|:---:|---:|
 | Daniel Alquinga | :technologist: Desarrollador | https://github.com/superdavi/Practica1_Grupo2.git |
