@@ -1,11 +1,11 @@
 ## INTEGRANTES.
 | Nombre | Cargo | URL GitHub |
 |---|:---:|---:|
-| Daniel Alquinga | 🐛 Desarrollador | https://github.com/superdavi/Practica1_Grupo2.git |
-| Daniel Baldeon | 🐛 Desarrollador | https://github.com/debpdhs/Practica1_Grupo2 |
-| Bryan Miño | 🐛 Desarrollador | |
-| Wilson Segovia | 🐛 Desarrollador | https://github.com/segoviawilson/Practica1_Grupo2.git|
-| Leonardo Tuguminago | 🐛 Desarrollador | https://github.com/Tuguminago/Proyectos.git |
+| Daniel Alquinga | :technologist: Desarrollador | https://github.com/superdavi/Practica1_Grupo2.git |
+| Daniel Baldeon | :technologist: Desarrollador | https://github.com/debpdhs/Practica1_Grupo2 |
+| Bryan Miño | :technologist: Desarrollador | |
+| Wilson Segovia | :technologist: Desarrollador | https://github.com/segoviawilson/Practica1_Grupo2.git|
+| Leonardo Tuguminago | :technologist: Desarrollador | https://github.com/Tuguminago/Proyectos.git |
 
 # Sistema de Gestión de Vehículos con Docker
 
