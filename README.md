@@ -4,7 +4,7 @@
 | Daniel Alquinga | 🐛 Desarrollador | https://github.com/superdavi/Practica1_Grupo2.git |
 | Daniel Baldeon | 🐛 Desarrollador | https://github.com/debpdhs/Practica1_Grupo2 |
 | Bryan Miño | 🐺 Desarrollador |https://github.com/bmiomi/tareadocker |
-| Wilson Segovia | :technologist: Desarrollador | https://github.com/segoviawilson/Practica1_Grupo2.git|
+| Wilson Segovia | 🐛 Desarrollador | https://github.com/segoviawilson/Practica1_Grupo2.git|
 | Leonardo Tuguminago | 🐛 Desarrollador | https://github.com/Tuguminago/Proyectos.git |
 
 # Sistema de Gestión de Vehículos con Docker
@@ -19,7 +19,42 @@ Este proyecto implementa un sistema de gestión de vehículos utilizando Docker,
 
 ## Configuración e Instalación
 
-### PASO 1: Configuración de Contenedores Docker
+### PASO 1: 📂 Estructura de Archivos
+    
+    Proyecto Vehículos
+    |
+    |____ .env
+    |____ README.md
+    |____ despliegues.txt
+    |____ init.sql
+
+### PASO 2: Creación de Red Docker
+
+```bash
+docker network create --driver bridge netw-vehiculos
+docker network ls
+```
+**Captura de la Ejecución**
+
+<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/08eda610-37bd-415f-aed4-d355f445a46b" />
+
+**Salida esperada:**
+```
+NETWORK ID     NAME             DRIVER    SCOPE
+c768b266264f   bridge           bridge    local
+e21e631237e9   host             host      local
+ef173c5efe1b   netw-vehiculos   bridge    local
+dd26efa30c17   none             null      local
+```
+**Captura de la Ejecución**
+<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/91472fb3-f8d7-495c-b728-c12773b8fc36" />
+
+**Explicación:**
+- Crea una red personalizada tipo `bridge` llamada `netw-vehiculos`
+- Permite comunicación entre contenedores por nombre
+- Aislamiento de red del resto del sistema
+    
+### PASO 3: Configuración de Contenedores Docker
 
 ```bash
 # MySQL
@@ -51,7 +86,7 @@ phpmyadmin:5.2.2
 **Captura de la Ejecución**
 <img width="886" height="609" alt="image" src="https://github.com/user-attachments/assets/ee9c91e9-a51f-4880-9fc3-50803a45073c" />
 
-### PASO 2: Estructura de Base de Datos (init.sql)
+### PASO 4: Estructura de Base de Datos (init.sql)
 
 ```sql
 -- Crear tabla de propietario
@@ -99,33 +134,8 @@ INSERT INTO vehiculo (placa, marca, modelo, anio, propietario_id) VALUES
 **Captura de la Ejecución**
 <img width="886" height="886" alt="image" src="https://github.com/user-attachments/assets/0d18e38a-4db4-466e-b965-7ddac3243d8c" />
 
-### PASO 3: Creación de Red Docker
 
-```bash
-docker network create --driver bridge netw-vehiculos
-docker network ls
-```
-**Captura de la Ejecución**
-
-<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/08eda610-37bd-415f-aed4-d355f445a46b" />
-
-**Salida esperada:**
-```
-NETWORK ID     NAME             DRIVER    SCOPE
-c768b266264f   bridge           bridge    local
-e21e631237e9   host             host      local
-ef173c5efe1b   netw-vehiculos   bridge    local
-dd26efa30c17   none             null      local
-```
-**Captura de la Ejecución**
-<img width="886" height="213" alt="image" src="https://github.com/user-attachments/assets/91472fb3-f8d7-495c-b728-c12773b8fc36" />
-
-**Explicación:**
-- Crea una red personalizada tipo `bridge` llamada `netw-vehiculos`
-- Permite comunicación entre contenedores por nombre
-- Aislamiento de red del resto del sistema
-
-# PASO 4: Descarga y Ejecución de MySql
+### PASO 5: Descarga y Ejecución de MySql
 # Ejecutar el contenedor MySQL
 docker run -d --name db-mysql-vehiculos --network netw-vehiculos --env-file .env -v mysql_data:/var/lib/mysql -p 3306:3306 mysql:8.3
 
@@ -141,7 +151,7 @@ Explicación:
 - NAMES: Nombre asignado al contenedor (db-mysql-vehiculos)
 - Estado: "Up 9 seconds" indica que el contenedor está ejecutándose correctamente
 
-### PASO 5: Descarga y Ejecución de phpMyAdmin
+### PASO 6: Descarga y Ejecución de phpMyAdmin
 
 ```bash
 docker run -d \
@@ -170,10 +180,10 @@ Pull complete
 
 ### Archivo .env
 ```env
-MYSQL_ROOT_PASSWORD=tu_password_seguro
-MYSQL_DATABASE=vehiculos_db
-MYSQL_USER=vehiculos_user
-MYSQL_PASSWORD=vehiculos_pass
+MYSQL_ROOT_PASSWORD=admin123
+MYSQL_DATABASE=dbVehiculos
+MYSQL_USER=usuario
+MYSQL_PASSWORD=clave123
 ```
 
 ### Comandos Útiles
